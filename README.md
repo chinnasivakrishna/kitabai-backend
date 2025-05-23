@@ -2,7 +2,7 @@
 
 ## Base URL
 ```
-http://localhost:5000/api
+https://kitabai-backend.onrender.com/api
 ```
 
 ## Authentication
@@ -635,7 +635,7 @@ Authorization: Bearer <token>
 ```javascript
 // Step 1: Request OTP
 const requestOTP = async (phoneNumber) => {
-  const response = await fetch('http://localhost:5000/api/auth/request-otp', {
+  const response = await fetch('https://kitabai-backend.onrender.com/api/auth/request-otp', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -647,7 +647,7 @@ const requestOTP = async (phoneNumber) => {
 
 // Step 2: Verify OTP
 const verifyOTP = async (otpId, otp, phoneNumber) => {
-  const response = await fetch('http://localhost:5000/api/auth/verify-otp', {
+  const response = await fetch('https://kitabai-backend.onrender.com/api/auth/verify-otp', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -666,7 +666,7 @@ const verifyOTP = async (otpId, otp, phoneNumber) => {
 ```javascript
 const getProfile = async () => {
   const token = localStorage.getItem('token');
-  const response = await fetch('http://localhost:5000/api/profile', {
+  const response = await fetch('https://kitabai-backend.onrender.com/api/profile', {
     headers: {
       'Authorization': `Bearer ${token}`
     }
@@ -676,7 +676,7 @@ const getProfile = async () => {
 
 const updateReadingProgress = async (bookId, currentPage) => {
   const token = localStorage.getItem('token');
-  const response = await fetch(`http://localhost:5000/api/history/${bookId}`, {
+  const response = await fetch(`https://kitabai-backend.onrender.com/api/history/${bookId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -702,7 +702,7 @@ const useApi = (url, options = {}) => {
     const fetchData = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch(`http://localhost:5000${url}`, {
+        const response = await fetch(`https://kitabai-backend.onrender.com${url}`, {
           ...options,
           headers: {
             'Content-Type': 'application/json',
@@ -770,7 +770,7 @@ Common HTTP Status Codes:
 
 ## 📝 Notes
 
-1. Replace `http://localhost:5000` with your actual server URL in production
+1. Replace `https://kitabai-backend.onrender.com` with your actual server URL in production
 2. Store JWT tokens securely (avoid localStorage in production, consider httpOnly cookies)
 3. Always handle errors appropriately in your frontend
 4. File uploads use `multipart/form-data` content type
